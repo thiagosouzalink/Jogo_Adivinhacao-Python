@@ -29,7 +29,7 @@ else:
     # Laço com execução do programa
     while True:
 
-        # Atualiza o estado da oalavra secreta, mantendo oculto as letras não acertadass
+        # Atualiza o estado da oalavra secreta
         secreto_temporario = ''
         for letra_secreta in profissao:
             if unidecode(letra_secreta.lower()) in letras_acertadas:
@@ -47,7 +47,7 @@ else:
             sleep(1)
             print(f"Palavra secreta: {secreto_temporario}\n")
 
-        letra = ler_letra("Digite uma letra: ").lower() # Recebe a letra do usuário
+        letra = ler_letra("Digite uma letra: ").lower()
 
         # verifica se a leta já foi digitada
         if letra in letras_digitadas:

@@ -4,6 +4,7 @@
     Autor: Thiago Souza
 
 """
+from typing import IO
 
 def ler_letra(txt):
     """
@@ -29,11 +30,14 @@ def ler_letra(txt):
     return letra
 
 
-def abrir_arquivo(file):
-    """
-    Função que realiza processo de abertura de arquivo.
-    :param file: Arquivo a ser aberto.
-    :return: Arquivo aberto com sucesso.
+def abrir_arquivo(file: str) -> IO:
+    """Função que realiza processo de abertura de arquivo.
+
+    Args:
+        file (str): path arquivo a ser aberto.
+
+    Returns:
+        (IO): Objeto de arquivo de leitura.
     """
 
     try:
@@ -51,11 +55,15 @@ def abrir_arquivo(file):
         return arquivo
 
 
-def ler_arquivo(file):
+def ler_arquivo(file: str) -> list:
     """
     Função que faz leitura de conteúdo de arquivo
-    :param file: Arquivo a ser verificado.
-    :return: Dados com conteúdo do arquivo.
+
+    Args:
+        file (str): path arquivo a ser aberto.
+    
+    Returns:
+        (list): Dados com conteúdo do arquivo.
     """
 
     with abrir_arquivo(file) as arquivo:

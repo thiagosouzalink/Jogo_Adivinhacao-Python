@@ -3,11 +3,12 @@
     Autor: Thiago Souza
 """
 ############### JOGO DE ADIVINHAÇÃO ###############
-from entrada import *
 from random import choice
 from time import sleep
 # Pacote externo, deve-se instalar, instrução abaixo:
-import unidecode # pip install unicode
+from unidecode import unidecode
+
+from utils import ler_arquivo, ler_letra
 
 print(f"{'#'*20} BEM VINDO AO JOGO DA ADIVINHAÇÃO {'#'*20}")
 # Obtêm arquivo com as profissões
@@ -16,11 +17,11 @@ if not profissoes:
     print("Erro ao carregar as profissões...")
 
 else:
-    profissao_original = choice(profissoes) # Sorteia uma profissão
-    profissao = unidecode.unidecode(profissao_original).lower()
+    profissao = choice(profissoes) # Sorteia uma profissão
+    # profissao = unidecode.unidecode(profissao_original).lower()
 
     letras_digitadas = []  # Lista com as letras digitadas
-    letras_acertadas = [' ']  # Lista com as letras acertadas
+    letras_acertadas = [" "]  # Lista com as letras acertadas
     chances = 3  # Número de chances
     print(f"  Você terá {chances} chance(s), boa sorte!\n")
     sleep(1.5)
@@ -31,7 +32,7 @@ else:
         # Atualiza o estado da oalavra secreta, mantendo oculto as letras não acertadass
         secreto_temporario = ''
         for letra_secreta in profissao:
-            if letra_secreta in letras_acertadas:
+            if unidecode(letra_secreta.lower()) in letras_acertadas:
                 secreto_temporario += letra_secreta
             else:
                 secreto_temporario += '*'
@@ -40,7 +41,7 @@ else:
         if secreto_temporario == profissao:
             sleep(1)
             print("\nParabéns! Você acertou!")
-            print(f'A palavra secreta era "{profissao_original}".')
+            print(f'A palavra secreta era "{profissao}".')
             break
         else:
             sleep(1)
@@ -66,7 +67,7 @@ else:
             if chances == 0:
                 sleep(1)
                 print("\nVocê perdeu!")
-                print(f'A palavra secreta era "{profissao_original}".')
+                print(f'A palavra secreta era "{profissao}".')
                 break
 
         print(f"Você ainda tem {chances} chance(s).\n")

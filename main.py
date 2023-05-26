@@ -58,7 +58,7 @@ else:
         letras_digitadas.append(letra)
 
         # Verifica se a letra está presente na palavra secreta
-        if letra in profissao:
+        if letra in unidecode(profissao.lower()):
             print(f'A letra "{letra}" está presente na palavra secreta.')
             letras_acertadas.append(letra)
         else:

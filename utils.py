@@ -1,10 +1,11 @@
 """
 
-    Pacote de funções
+    Pacote de utilidades
     Autor: Thiago Souza
 
 """
 from typing import IO
+
 
 def ler_letra(txt):
     """
@@ -72,5 +73,66 @@ def ler_arquivo(file: str) -> list:
             for linha in arquivo:
                 dados.append(linha.strip())
             return dados
+
+
+forca = ['''
++---+
+|   |
+    |
+    |
+    |
+    |
+=========''', '''
++---+
+|   |
+O   |
+    |
+    |
+    |
+=========''', '''
++---+
+|   |
+O   |
+|   |
+    |
+    |
+=========''', '''
+ +---+
+ |   |
+ O   |
+/|   |
+     |
+     |
+=========''', '''
+ +---+
+ |   |
+ O   |
+/|\\  |
+     |
+     |
+=========''', '''
+ +---+
+ |   |
+ O   |
+/|\\  |
+ |   |
+     |
+=========''', '''
+ +---+
+ |   |
+ O   |
+/|\\  |
+ |   |
+/    |
+     |
+=========''','''
+ +---+
+ |   |
+ O   |
+/|\\  |
+ |   |
+/ \\  |
+     |
+=========''']
 
 
